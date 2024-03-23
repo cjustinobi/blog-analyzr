@@ -1,10 +1,10 @@
 {
-    "name": "greedy-pig",
+    "name": "blog-analyzr",
     "version": "0.3.0",
     "private": true,
     "scripts": {
         "dev:all": "npm-run-all dev:init --parallel dev:backend dev:frontend",
-        "dev": "NODE_ENV=development next dev",
+        "dev": "next dev",
         "dev:backend": "convex dev",
         "dev:init": "convex dev --until-success",
         "build": "next build",

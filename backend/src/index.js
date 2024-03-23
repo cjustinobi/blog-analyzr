@@ -3,15 +3,13 @@ const viem = require('viem')
 const { Router } = require('cartesi-router')
 const { Wallet, Error_out } = require('cartesi-wallet')
 const { 
+  creators,
   noticeHandler,
-  reportHandler
+  reportHandler,
+  setCreators,
+  analzePost
  } = require('./utils/helpers')
-const { 
-  games, 
-  addParticipant, 
-  addGame, 
-  gamePlayHandler
-} = require('./games')
+
 
 const wallet = new Wallet(new Map())
 const router = new Router(wallet)
@@ -53,42 +51,32 @@ async function handle_advance(data) {
 
   try {
 
-    if (JSONpayload.method === 'createGame') {
+    if (JSONpayload.method === 'setCreators') {
       if (JSONpayload.data == '' || null) {
         console.log('Result cannot be empty');
         await reportHandler(message)
         return 'reject'
       }
   
-      console.log('creating game...');
-      const res = addGame(JSONpayload.data);
+      console.log('setting creators...');
+      const res = setCreators(JSONpayload.creators);
       if (res.error) {
         await reportHandler(res.message);
         return 'reject';
       }
-      advance_req = await noticeHandler(games);
+      advance_req = await noticeHandler(creators);
   
   
-    } else if (JSONpayload.method === 'addParticipant') {
+    } else if (JSONpayload.method === 'analzePost') {
 
-      console.log('adding participant ...', JSONpayload.data);
-      const res = addParticipant(JSONpayload.data)
+      console.log('analyzing post ...', JSONpayload);
+      const res = analzePost(JSONpayload)
       if (res.error) {
         await reportHandler(res.message);
         return 'reject';
       }
-      advance_req = await noticeHandler(games)
+      advance_req = await noticeHandler(creators)
 
-    } else if (JSONpayload.method === 'playGame') {
-      
-      console.log('game play ...', JSONpayload.data)
-      const res = gamePlayHandler(JSONpayload.data)
-      if (res.error) {
-        await reportHandler(res.message);
-        return 'reject';
-      }
-      advance_req = await noticeHandler(games)
-    
     } else {
       console.log('invalid request');
       const message = `method undefined: ${JSONpayload.method}`
@@ -103,7 +91,7 @@ async function handle_advance(data) {
   const json = await advance_req?.json();
   
   console.log(`Received status ${advance_req?.status} with body ${JSON.stringify(json)}`)
-  console.log('Game status ', JSON.stringify(games))
+  console.log('Creators ', JSON.stringify(creators))
 
   return 'accept';
       }

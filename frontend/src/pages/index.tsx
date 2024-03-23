@@ -1,6 +1,6 @@
 import Hero from '@/components/ui/Hero'
 // import BlogLayout from '@/components/BlogLayout'
-import { getBlogPosts, getEventPosts } from '@/lib/utils'
+import { getBlogPosts } from '@/lib/utils'
 import { PostType } from '@/interfaces'
 import PostCard from '@/components/ui/PostCard'
 

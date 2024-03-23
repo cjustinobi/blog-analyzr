@@ -4,16 +4,31 @@ export const creators = [
   {
     name: 'Alice',
     rating: 0,
-    analyzedPosts: []
+    analyzedPosts: [
+      {
+        sentimentScore: 0,
+        readability: 0
+      }
+    ]
   },
   {
     name: 'Bob',
     rating: 0,
-    analyzedPosts: []
+    analyzedPosts: [
+      {
+        sentimentScore: 0,
+        readability: 0
+      }
+    ]
   },
   {
     name: 'Eve',
     rating: 0,
-    analyzedPosts: []
+    analyzedPosts: [
+      {
+        sentimentScore: 0,
+        readability: 0
+      }
+    ]
   }
 ]

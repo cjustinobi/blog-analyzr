@@ -38,10 +38,8 @@ init({
 })
 
 //Setup GraphQL Apollo client
-const serverUrl =
-  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:8080'
-    : process.env.NEXT_PUBLIC_SERVER_URL
+const serverUrl = 'http://localhost:8080'
+
 const URL_QUERY_GRAPHQL = `${serverUrl}/graphql`
 
 const client = new ApolloClient({

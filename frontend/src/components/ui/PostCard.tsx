@@ -1,8 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useConnectWallet } from '@web3-onboard/react'
 import { PostType } from '@/interfaces'
-import { formatDate } from '@/lib/utils'
+import { dappAddress, formatDate } from '@/lib/utils'
 import Button from '../shared/Button'
+import toast from 'react-hot-toast'
+import { useRollups } from '@/hooks/useRollups'
+import { addInput } from '@/lib/cartesi'
 
 type Props = {
   post: PostType
@@ -10,6 +14,26 @@ type Props = {
 }
 
 const PostCard = ({ post, textLimit }: Props) => {
+  const rollups = useRollups(dappAddress)
+
+  const [{ wallet }] = useConnectWallet()
+
+  const analyzePost = async (creator: number, path: string) => {
+    const account = wallet?.accounts[0].address
+    if (!account) return toast.error('Connect account')
+
+    const jsonPayload = JSON.stringify({
+      method: 'analzePost',
+      path: `${window.location.href}${path}`,
+      creator,
+    })
+
+    const tx = await addInput(JSON.stringify(jsonPayload), dappAddress, rollups)
+
+    const result = await tx.wait(1)
+    console.log(result)
+  }
+
   return (
     <div className="relative flex flex-col overflow-hidden rounded-lg border bg-white">
       <span className="absolute right-1 top-1 z-50 shadow-md rounded border px-2 py-1 text-sm text-gray-500">
@@ -70,7 +94,14 @@ const PostCard = ({ post, textLimit }: Props) => {
             </div>
           </div>
 
-          <Button className="mt-11">Rate Post</Button>
+          <Button
+            onClick={() =>
+              analyzePost(post.fields.author[0], `/blog/${post.fields.slug}`)
+            }
+            className="mt-11 w-[160px]"
+          >
+            Analyze Post
+          </Button>
         </div>
       </div>
     </div>
