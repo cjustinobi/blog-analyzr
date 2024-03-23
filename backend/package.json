@@ -7,6 +7,9 @@
     "cartesi-wallet": "^1.0.5",
     "dotenv": "^16.4.4",
     "ethers": "^6.7.1",
+    "natural": "^6.12.0",
+    "puppeteer": "^22.6.0",
+    "sentiment": "^5.0.2",
     "uuid": "^9.0.1",
     "viem": "^2.7.3"
   },

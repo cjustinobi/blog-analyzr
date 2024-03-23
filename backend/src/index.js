@@ -7,7 +7,7 @@ const {
   noticeHandler,
   reportHandler,
   setCreators,
-  analzePost
+  analyzeBlogPostHandler
  } = require('./utils/helpers')
 
 
@@ -70,7 +70,7 @@ async function handle_advance(data) {
     } else if (JSONpayload.method === 'analzePost') {
 
       console.log('analyzing post ...', JSONpayload);
-      const res = analzePost(JSONpayload)
+      const res = analyzeBlogPostHandler(JSONpayload)
       if (res.error) {
         await reportHandler(res.message);
         return 'reject';

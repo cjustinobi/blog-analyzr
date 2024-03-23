@@ -44,7 +44,7 @@ export const setCreators = (creators) => {
 
   creators = creators
 
-  return errorResponse(false)
+  return { creators }
 
 }
 
@@ -97,9 +97,13 @@ export const analyzeBlogPostHandler = async ({ path, creator }) => {
 
   creators[updatedCreatorIndex].rating = (averageSentimentScore + averageReadability) / 2;
 
-  // return { result, creatorRating: creators[updatedCreatorIndex].rating };
-  return errorResponse(false)
+  return { result, creatorRating: creators[updatedCreatorIndex].rating };
 };
+
+
+// export const analzePost = ({ path, creator }) => {
+//   const {} = analyzeBlogPost(path)
+// }
 
 
 const errorResponse = (error, message = '') => {
