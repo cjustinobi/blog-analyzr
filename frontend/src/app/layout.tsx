@@ -54,13 +54,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
-        <Provider store={store}>
-          <ApolloProvider client={client}>
-            <Header />
-            {children}
-            <Toaster />
-          </ApolloProvider>
-        </Provider>
+        <main className="overflow-x-hidden text-app-text-color px-20">
+          <Provider store={store}>
+            <ApolloProvider client={client}>
+              <Header />
+              {children}
+              <Toaster />
+            </ApolloProvider>
+          </Provider>
+        </main>
       </body>
     </html>
   )
