@@ -1,14 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit'
-import leaderboardReducer from '@/features/leaderboard/leaderboardSlice'
 import modalReducer from '@/features/modal/modalSlice'
-import gamesReducer from '@/features/games/gamesSlice'
+
 
 const store = configureStore({
   reducer: {
-    leaderboard: leaderboardReducer,
-    modal: modalReducer,
-    games: gamesReducer,
+    modal: modalReducer
   },
 })
 
 export default store
+
+// BlogAnalyzr is designed to analyze the quality
+
+// of blog posts of technical writers using CM for necessary offchain analysis. 
+// The more point an author's work gets, 
+// the higher he gets in ranks.

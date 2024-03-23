@@ -53,33 +53,33 @@ function getWordFrequency(text) {
 }
 
 // Function to perform sentiment analysis on text
-// function getSentimentScore(text) {
-// 	const arr = text.split(' ');
-//     // Use a technical sentiment lexicon tailored to ICT and software engineering
-//     const sentimentAnalyzer = new natural.SentimentAnalyzer('English', natural.PorterStemmer, 'senticon');
-
-//     // Analyze sentiment
-//     const score = sentimentAnalyzer.getSentiment(arr);
-//     console.log('Sentiment Score:', score);
-//     return score;
-// }
-
 function getSentimentScore(text) {
-    // Use a sentiment lexicon tailored to ICT and software engineering terms and expressions
-    const customSentiment = new Sentiment({
-        labels: {
-            // Define custom sentiment labels based on ICT and software engineering terms
-            'positive': ['efficient', 'innovative', 'reliable'],
-            'negative': ['buggy', 'inefficient', 'unreliable']
-        }
-    });
+	const arr = text.split(' ');
+    // Use a technical sentiment lexicon tailored to ICT and software engineering
+    const sentimentAnalyzer = new natural.SentimentAnalyzer('English', natural.PorterStemmer, 'senticon');
 
     // Analyze sentiment
-    const result = customSentiment.analyze(text);
-    const score = result.score;
+    const score = sentimentAnalyzer.getSentiment(arr);
     console.log('Sentiment Score:', score);
     return score;
 }
+
+// function getSentimentScore(text) {
+//     // Use a sentiment lexicon tailored to ICT and software engineering terms and expressions
+//     const customSentiment = new Sentiment({
+//         labels: {
+//             // Define custom sentiment labels based on ICT and software engineering terms
+//             'positive': ['efficient', 'innovative', 'reliable'],
+//             'negative': ['buggy', 'inefficient', 'unreliable']
+//         }
+//     });
+
+//     // Analyze sentiment
+//     const result = customSentiment.analyze(text);
+//     const score = result.score;
+//     console.log('Sentiment Score:', score);
+//     return score;
+// }
 
 // Function to calculate readability score of text
 function getReadabilityScore(text) {

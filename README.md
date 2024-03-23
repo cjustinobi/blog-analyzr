@@ -1,4 +1,4 @@
-**Project Name: BlogAnalyzr**
+## Project Name: BlogAnalyzr
 
 ### Description
 BlogAnalyzr is designed to analyze the quality of blog posts of technical writers using the Cartesi Machine for necessary offchain analysis. It utilizes [Puppeteer](https://pptr.dev) for web scraping, [Natural](https://naturalnode.github.io/natural/) and [Sentiment](https://github.com/thisandagain/sentiment) for sentiment analysis and readability scoring, and provides functionality to rate creators based on the quality of their posts.
@@ -20,10 +20,6 @@ BlogAnalyzr is designed to analyze the quality of blog posts of technical writer
 2. `cd` into the backend directory and build the project by running `sunodo build`
 3. Then, `sunodo run`
 4. `cd` into the frontend and run `npm run dev`. You can start interacting with the application!
-
-
-### Contributors
-- [Justin](https://github.com/cjustinobi)
 
 ### License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

@@ -32,7 +32,7 @@ const Creators = () => {
                 John McCulling
               </div>
               <p className="mb-3 text-sm text-gray-500 md:mb-4 md:text-base">
-                Founder / CEO
+                Expert
               </p>
               <div className="flex">
                 <div className="flex gap-4">
@@ -89,7 +89,7 @@ const Creators = () => {
                 Kate Berg
               </div>
               <p className="mb-3 text-sm text-gray-500 md:mb-4 md:text-base">
-                CFO
+                Novice
               </p>
 
               <div className="flex">
@@ -146,7 +146,7 @@ const Creators = () => {
                 Greg Jackson
               </div>
               <p className="mb-3 text-sm text-gray-500 md:mb-4 md:text-base">
-                CTO
+                Professional
               </p>
 
               <div className="flex">
