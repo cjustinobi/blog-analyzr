@@ -1,7 +1,7 @@
 **Project Name: BlogAnalyzr**
 
 ### Description
-BlogAnalyzr is designed to analyze the quality of blog posts of technical writers using the Cartesi Machine for necessary offchain analysis. It utilizes [Puppeteer](https://pptr.dev) for web scraping, [Natural](https://naturalnode.github.io/natural/) and [sentiment](https://github.com/thisandagain/sentiment) for sentiment analysis and readability scoring, and provides functionality to rate creators based on the quality of their posts.
+BlogAnalyzr is designed to analyze the quality of blog posts of technical writers using the Cartesi Machine for necessary offchain analysis. It utilizes [Puppeteer](https://pptr.dev) for web scraping, [Natural](https://naturalnode.github.io/natural/) and [Sentiment](https://github.com/thisandagain/sentiment) for sentiment analysis and readability scoring, and provides functionality to rate creators based on the quality of their posts.
 
 ### Features
 1. Analyze the quality of blog posts by extracting text content, performing sentiment analysis, and calculating readability score.
@@ -29,4 +29,4 @@ BlogAnalyzr is designed to analyze the quality of blog posts of technical writer
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ### Acknowledgments
-Special thanks to the Cartesi DevAd Team for their guidance, [Puppeteer](https://pptr.dev), Natural, Sentiment, and viem libraries for their contributions.
+Special thanks to the Cartesi DevAd Team for their guidance, [Puppeteer](https://pptr.dev), [Natural](https://naturalnode.github.io/natural/), [Sentiment](https://github.com/thisandagain/sentiment), and other libraries used in this project for their wonderful contributions to the tech ecosystem.
